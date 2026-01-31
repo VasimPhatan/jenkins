@@ -18,4 +18,19 @@ pipeline {
             }
         }
     }
+
+    post { 
+        always { 
+            echo 'I will always run weather job is success ot failure'
+        }
+        success {
+
+           echo 'i will run when the job is success'
+        }
+
+        failure {
+            echo 'i will always run when the job is failure'
+        }
+
+    }
 }
