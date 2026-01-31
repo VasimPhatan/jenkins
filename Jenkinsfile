@@ -5,6 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh '''
+                   ls -ltrh 
+                   pwd 
+
+                '''
             }
         }
         stage('Test') {
@@ -15,6 +20,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                //error 'this is failure'
             }
         }
     }
