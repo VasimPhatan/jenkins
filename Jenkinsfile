@@ -8,6 +8,8 @@ pipeline {
                 sh '''
                    ls -ltrh 
                    pwd 
+                   ls -a
+                   
 
                 '''
             }
