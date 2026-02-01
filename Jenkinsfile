@@ -29,6 +29,10 @@ pipeline {
         }
 
         stage('deploy') {
+
+            environment {
+                AUTH = credentials('ssh-auth')
+            }
             steps {
                 sh '''
                 echo " this step is for deploying"
