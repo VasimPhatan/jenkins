@@ -5,7 +5,7 @@ pipeline {
         USER = 'vasim'
     }
 
-    trigger {
+    triggers {
         corn('* * * * *')
     }
 
