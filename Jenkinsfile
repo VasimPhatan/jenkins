@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh '''
                 echo " this step is for deploying"
-                ptintenv
+                printenv
                 '''
             }
         }
