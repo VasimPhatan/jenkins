@@ -13,6 +13,7 @@ pipeline {
 
                 sh '''
                 echo " thi step is for building"
+                printenv
                 '''
             }
         }
