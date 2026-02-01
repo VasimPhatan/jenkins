@@ -21,7 +21,7 @@ pipeline {
         stage('test') {
             steps {
                 sh '''
-                echo "this stage is for testing"
+                echo "this stage is for testing purpose"
                 printenv
                 '''
             }
