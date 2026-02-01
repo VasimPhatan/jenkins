@@ -1,6 +1,12 @@
 pipeline {
     agent { node { label 'agent1' } }
 
+    environment {
+
+        USER = 'vasim'
+        job = 'devops'
+    }
+
     stages {
         stage('build') {
             steps{
