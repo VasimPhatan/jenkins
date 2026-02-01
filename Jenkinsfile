@@ -15,11 +15,19 @@ pipeline {
             }
         }
 
+         stage('scan') {
+            steps {
+                echo " this stage is to deploy"
+            }
+        }
+
         stage('deploy') {
             steps {
                 echo " this stage is to deploy"
             }
         }
+
+
     }
 
 }
