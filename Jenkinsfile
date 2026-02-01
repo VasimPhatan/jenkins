@@ -27,6 +27,17 @@ pipeline {
 
         }
 
+        stage('params') {
+
+            steps {
+                echo "person  ${params.PERSON} "
+                echo "Boigraphy ${params.BIOGRAPHY}"
+                echo "Toggle ${params.TOGGLE}"
+                echo "CHOICE ${params.CHOICE}"
+                echo "CHOICE ${params.PASSWORD}"
+            } 
+        }
+
         stage ('test') {
 
             steps {
@@ -38,14 +49,6 @@ pipeline {
             
         }
 
-        stage ('Input') {
-
-            steps {
-               
-               input " please provide approval"          
-               
-           }
-        }
 
 
         stage ('deploy') {
