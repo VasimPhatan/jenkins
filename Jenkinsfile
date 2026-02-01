@@ -31,3 +31,22 @@ pipeline {
     }
 
 }
+
+
+
+post {
+
+    always {
+
+        echo " i will always run weather the job is success or failure"
+
+    }
+
+    success {
+        echo " i will run when the job  is success"
+    }
+
+    failure {
+         echo " i will run when the job is failure"
+    }
+}
