@@ -1,44 +1,25 @@
 pipeline {
-    agent { node { label 'agent1' } } 
 
-    stages {
+    agent { node { label 'agent1' } }
+
+    stages{
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh '''
-                   ls -ltrh 
-                   pwd 
-                   ls -la
-                   
+                echo " this stage is to build"
+            }
+        }
 
-                '''
+        stage('test') {
+            steps {
+                echo " this stage is to test"
             }
         }
-        stage('Test') {
+
+        stage('deploy') {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                //error 'this is failure'
+                echo " this stage is to deploy"
             }
         }
     }
 
-    post { 
-        always { 
-            echo 'I will always run weather job is success ot failure'
-        }
-        success {
-
-           echo 'i will run when the job is success'
-        }
-
-        failure {
-            echo 'i will always run when the job is failure'
-        }
-
-    }
 }
