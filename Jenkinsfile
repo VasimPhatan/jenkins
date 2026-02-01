@@ -1,54 +1,43 @@
 pipeline {
-
     agent { node { label 'agent1' } }
 
-    stages{
-        stage('Build') {
-            steps {
-                echo " this stage is to build the code"
+    stages {
+        stage('build') {
+            steps{
+
+                sh '''
+                echo " thi step is for building"
+                '''
             }
         }
 
         stage('test') {
             steps {
-                echo " this stage is to test the code"
+                echo "this stage is for testing"
             }
-        }
 
-         stage('scan') {
-            steps {
-                echo " this stage is to scan the code"
-            }
         }
 
         stage('deploy') {
             steps {
-                echo "this stage is to deploy the code "
+                echo " this step is for deploying"
             }
         }
-
-
     }
 
-
     post {
-
         always {
-
-            echo " i will always run weather the job is success or failure"
-
+            echo 'this will run weather the job is success or failure'
         }
 
         success {
-            echo " i will run when the job  is success"
+            echo 'this will run when the job is success'
         }
 
         failure {
-            echo " i will run when the job is failure"
+            echo 'this will run when the job is failure'
         }
     }
 
 }
-
-
 
