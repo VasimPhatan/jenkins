@@ -1,68 +1,59 @@
 pipeline {
-    agent { node { label 'agent1' } }
+
+    agent { node { label ('agent1') } }
 
     environment {
-
         USER = 'vasim'
-        job = 'devops'
     }
 
     stages {
-        stage('build') {
-            steps{
 
-                sh '''
-                echo " thi step is for building"
-                printenv
-                '''
-            }
+        stage('build') {
+            
+            sh '''
+            echo " this stage is used for building"
+            printenv
+            '''
         }
 
         stage('test') {
-            steps {
-                sh '''
-                echo "this stage is for testing purpose"
-                printenv
-                '''
-            }
-
+            
+            sh '''
+            echo " this stage is used for testing"
+            printenv
+            '''
         }
-        
 
-         stage('Input') {
-             steps {
-                input 'shall i proceed'
-             }
+        stage('Input') {
+            input 'should ask for approval'
 
         }
 
-        stage('deploy') {
+
+         stage('deploy') {
 
             environment {
-                AUTH = credentials('ssh-auth')
+                AUTH = credentials('ssh-auth') 
             }
-            steps {
-                sh '''
-                echo " this step is for deploying"
-                printenv
-                '''
-            }
+
+            sh '''
+            echo " this stage is used for deploy"
+            '''
         }
     }
 
     post {
+
         always {
-            echo 'this will run weather the job is success or failure'
+            echo " this will  run if the job is success or failure"
         }
 
         success {
-            echo 'this will run when the job is success'
+            echo " this will run if the job is success "
         }
 
-        failure {
-            echo 'this will run when the job is failure'
+         failure  {
+            echo " this will run if the job is success "
         }
     }
-
 }
-
