@@ -27,6 +27,14 @@ pipeline {
             }
 
         }
+        
+
+         stage('Input') {
+             input {
+                echo 'if the test is ok i  will take cation if success i will aprove and the dploy stage will run'
+             }
+
+        }
 
         stage('deploy') {
 
