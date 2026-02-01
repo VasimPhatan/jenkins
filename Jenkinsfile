@@ -20,14 +20,20 @@ pipeline {
 
         stage('test') {
             steps {
+                sh '''
                 echo "this stage is for testing"
+                printenv
+                '''
             }
 
         }
 
         stage('deploy') {
             steps {
+                sh '''
                 echo " this step is for deploying"
+                ptintenv
+                '''
             }
         }
     }
