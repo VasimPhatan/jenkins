@@ -17,7 +17,7 @@ pipeline {
 
          stage('scan') {
             steps {
-                echo " this stage is to deploy"
+                echo " this stage is to scan the code"
             }
         }
 
