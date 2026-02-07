@@ -2,17 +2,21 @@ pipeline {
 
     agent{ node { label 'agent1' } }
 
-    options {
-        ansiColor('xterm')
-    }
+   environment {
+     USER = 'vasim'
+   }
 
 
     stages{
 
         stage('cone the code') {
             steps {
+                sh '''
                  echo " cloning the code in the from the git to jenkins"
-                 shs 'ls -ltrr'
+                 ls -ltr
+                 printenv
+                '''
+
 
             }
         }
