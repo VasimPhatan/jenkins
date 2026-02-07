@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage {
+        stage('input') {
             steps {
                 input 'please provide the approval'
             }
