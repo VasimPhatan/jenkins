@@ -11,7 +11,7 @@ pipeline {
 
         stage('cone the code') {
             steps {
-                 echo " cloning the code in the from the git to jenkins"
+                 eccho " cloning the code in the from the git to jenkins"
 
             }
         }
