@@ -3,7 +3,7 @@ pipeline {
     agent { node { label {'agent1'} } }
 
     options {
-        anisColor('xterm')
+        ansiColor('xterm')
     }
 
     stages{
