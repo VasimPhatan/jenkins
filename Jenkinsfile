@@ -23,8 +23,12 @@ pipeline {
     stages{
 
         stage('cone the code') {
-            environment {
-                USER = 'siva'
+            // environment {
+            //     USER = 'siva'
+            // }
+            when {
+                environmnet name: 'USER' , value 'vasim'
+                
             }
             steps {
                 sh '''
