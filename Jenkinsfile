@@ -10,6 +10,9 @@ pipeline {
     stages{
 
         stage('cone the code') {
+            environment {
+                USER = 'siva'
+            }
             steps {
                 sh '''
                  echo " cloning the code in the from the git to jenkins"
