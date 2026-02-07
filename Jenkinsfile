@@ -40,7 +40,7 @@ pipeline {
            }
         }
 
-        stage('build the code') {
+        stage('clone the code') {
             environment {
                 USER = 'siva'
 
