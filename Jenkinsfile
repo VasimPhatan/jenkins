@@ -58,7 +58,7 @@ pipeline {
             }
         }
 
-        stage('clone the code') {
+        stage('deploy the code') {
             steps {
                 sh '''
                 ls -ltrh 
