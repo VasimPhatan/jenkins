@@ -27,8 +27,8 @@ pipeline {
             //     USER = 'siva'
             // }
             when {
-                environmnet name: 'USER' , value 'vasim'
-                
+                environment name: 'USER' , value 'vasim'
+
             }
             steps {
                 sh '''
