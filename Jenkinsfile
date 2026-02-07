@@ -1,94 +1,75 @@
 pipeline {
-    agent { node { label ('agent1') } }
 
-    environment {
-        USER = 'vasim'
-    }
+    agent { node { label {'agent1'} } }
 
-    triggers {
-        cron('* * * * *')
-    }
+    stages{
 
-    parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    }
-
-
-    stages {
-        stage ('build') {
-
+        stage('cone the code') {
             steps {
-                sh '''
-                  echo " this stage is tio build"
-                  printenv
-                '''
-            }
+                 echo " cloning the code in the from the git to jenkins"
 
+            }
+        }
+
+        stage('build the code') {
+            steps{
+                echo " building the code"
+            }
 
         }
 
-        stage('params') {
-
-            steps {
-                echo "person  ${params.PERSON} "
-                echo "Boigraphy ${params.BIOGRAPHY}"
-                echo "Toggle ${params.TOGGLE}"
-                echo "CHOICE ${params.CHOICE}"
-                echo "CHOICE ${params.PASSWORD}"
-            } 
-        }
-
-        stage ('test') {
-
-            steps {
-                sh '''
-                  echo " this stage is test"
-                '''
+        stage('unit test cases') {
+            steps{
+                echo " testing the code"
             }
 
-            
+        }
+
+         stage('scan the code') {
+            steps{
+                echo "scanning the code"
+            }
+
+        }
+
+        stage('package the code') {
+            steps{
+                echo "package the code"
+            }
+
+        }
+
+         stage('push the code to nexus') {
+            steps{
+                echo "pushing the code"
+            }
+
+        }
+
+        stage('deploy the code to kubernetes cluster') {
+            steps{
+                echo "deploying  the code"
+            }
+
         }
 
 
-
-        stage ('deploy') {
-
-            environment {
-                AUTH = credentials('ssh-auth')
-            }
-
-            steps {
-                sh '''
-                  echo " this stage is deploy"
-                '''
-            }
-
-            
-        }
+        
+    
     }
-
 
     post {
-
         always {
-            echo " this will run always"
+            echo " always run if the job is failure or success"
         }
 
         success {
-            echo " this will run on success"
+            echo " run if the job is success"
         }
 
-
-          failure {
-            echo " this will run on success"
+         failure {
+            echo " run if the job is failure"
         }
-
-
-
-
     }
+    
 }
