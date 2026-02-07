@@ -12,7 +12,7 @@ pipeline {
         stage('cone the code') {
             steps {
                  echo " cloning the code in the from the git to jenkins"
-                 sh 'ls -ltrr'
+                 shs 'ls -ltrr'
 
             }
         }
