@@ -24,6 +24,12 @@ pipeline {
             }
         }
 
+        stage {
+            steps {
+                input 'please provide the approval'
+            }
+        }
+
         stage('build the code') {
             steps{
                 echo " building the code"
